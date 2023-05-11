@@ -17,13 +17,13 @@ class Score:
         self.score += points
         self.pen.clear()
         self.pen.write("Score: {}".format(self.score), align="center", font=("Courier", 24, "normal"))
-        if self.score == 1800:
+        if self.score == 3000:
             self.pen.speed(0)
             self.pen.color("white")
             self.pen.penup()
             self.pen.hideturtle()
             self.pen.goto(0, 0)
             self.pen.write(f"YOU WIN!", align="right", font=("Courier", 24, "normal"))
-            print("You Win.")
-            return game_on = False
+
+
 

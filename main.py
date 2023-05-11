@@ -4,6 +4,7 @@ from paddle import Paddle
 from ball import Ball
 from bricks import Brick
 from player import Player
+from score import Score
 
 # Create the screen
 screen = Screen()
@@ -14,6 +15,7 @@ screen.tracer(0)
 
 turtle = Turtle()
 paddle = Paddle()
+score = Score()
 
 screen.listen()
 screen.onkeypress(key='Left', fun=paddle.move_left)
@@ -22,9 +24,7 @@ screen.onkeypress(key='Right', fun=paddle.move_right)
 ball = Ball()
 player = Player()
 
-
 game_on = True
-
 
 # Create a list to hold all the bricks
 bricks = []
@@ -33,6 +33,7 @@ for row in range(3):
     for col in range(10):
         brick = Brick(-450 + col * 100, 250 - row * 50)
         bricks.append(brick)
+
 
 def check_wall_collision():
     global ball, game_on
@@ -63,6 +64,7 @@ def check_brick_collision():
         if ball.distance(brick) < 40:
             ball.bounce_y()
             brick.hit()
+            score.update_score(50)
 
 
 while game_on:
@@ -73,7 +75,9 @@ while game_on:
     check_paddle_collision()
     check_brick_collision()
     if player.lives == 0:
-        print('Game Over.')
         game_on = False
+    if score.score == 3000:
+        game_on = False
+
 
 screen.mainloop()

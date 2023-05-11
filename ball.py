@@ -1,5 +1,6 @@
 from turtle import Turtle
 
+
 class Ball(Turtle):
     def __init__(self):
         super().__init__()
@@ -8,7 +9,6 @@ class Ball(Turtle):
         self.penup()
         self.y_move_dist = 4
         self.x_move_dist = 4
-
 
     def move(self):
         new_x = self.xcor() + self.x_move_dist

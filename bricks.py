@@ -1,7 +1,6 @@
 from turtle import Turtle
 import random
 from score import Score
-score = Score()
 
 
 COLOR_LIST = ['royal blue',
@@ -9,6 +8,7 @@ COLOR_LIST = ['royal blue',
               'violet', 'salmon', 'tomato',
               'sandy brown', 'purple', 'deep pink',
               'medium sea green', 'khaki']
+
 
 class Brick(Turtle):
     def __init__(self, x_cor, y_cor):
@@ -28,10 +28,8 @@ class Brick(Turtle):
     def hit(self):
         self.hits += 1
         if self.hits == 1:
-            score.update_score(10)
             self.color('white')
         elif self.hits == 2:
-            score.update_score(50)
             self.goto(-1000, -1000)
 
 
