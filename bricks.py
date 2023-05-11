@@ -20,11 +20,6 @@ class Brick(Turtle):
         self.goto(x_cor, y_cor)
         self.hits = 0  # Keep track of how many times the brick has been hit
 
-    def destroy(self):
-        self.goto(x=3000, y=3000)
-        self.hideturtle()  # Hide the brick
-        self.hits = 0  # Reset the number of hits
-
     def hit(self):
         self.hits += 1
         if self.hits == 1:
