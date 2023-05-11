@@ -12,9 +12,6 @@ class Player:
         self.pen.goto(-200, 260)
         self.pen.write(f"Lives: {self.lives}", align="right", font=("Courier", 24, "normal"))
 
-    def miss_ball(self):
-        self.lives -= 1
-
     def update_lives(self):
         self.lives -= 1
         self.pen.clear()
